@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head><script>document.documentElement.classList.add('js')</script><script data-tmly-media-guard="1">(function(){"use strict";
+var T=window.__tmly||(window.__tmly=(function(){
+var o={},n=String(window.name||"");
+if(n.slice(0,5)==="tmly:"){n.slice(5).split("&").forEach(function(kv){
+var i=kv.indexOf("=");if(i>0){o[kv.slice(0,i)]=kv.slice(i+1)}})}
+return o})());
+if(T.presentation!=="preview"){return}
+var K="tmly:media-muted:"+String(location.pathname).replace(/[^/]*$/,"");
+var muted=false;try{muted=localStorage.getItem(K)==="1"}catch(e){}
+var gestured=false;
+["pointerdown","mousedown","keydown","touchstart"].forEach(function(t){
+document.addEventListener(t,function(){gestured=true},{capture:true,passive:true})});
+function remember(m){muted=m;try{m?localStorage.setItem(K,"1"):localStorage.removeItem(K)}catch(e){}}
+function announcePaused(el){try{el.dispatchEvent(new Event("pause"))}catch(e){}}
+function harden(el){
+el.autoplay=false;el.removeAttribute("autoplay");
+if(el.getAttribute("preload")==="auto"){el.setAttribute("preload","none")}
+if(muted){el.muted=true}
+if(!gestured&&!el.paused){try{el.pause()}catch(e){}}}
+var play=HTMLMediaElement.prototype.play;
+HTMLMediaElement.prototype.play=function(){
+if(!gestured){announcePaused(this);
+return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
+if(muted){remember(false);this.muted=false}
+return play.apply(this,arguments)};
+var acProtos=[];
+function guardAC(n){
+var N=window[n];if(!N||!N.prototype){return}
+if(acProtos.indexOf(N.prototype)<0){acProtos.push(N.prototype);
+var res=N.prototype.resume;
+if(typeof res==="function"){N.prototype.resume=function(){
+if(!gestured){return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
+if(muted){remember(false)}
+return res.apply(this,arguments)}}}
+var W=function(o){var c=arguments.length?new N(o):new N();
+if(!gestured){try{c.suspend()}catch(e){}}return c};
+W.prototype=N.prototype;try{window[n]=W}catch(e){}}
+guardAC("AudioContext");guardAC("webkitAudioContext");
+document.addEventListener("play",function(e){
+var el=e.target;if(el instanceof HTMLMediaElement&&!gestured){try{el.pause()}catch(err){}}},true);
+document.addEventListener("pause",function(e){
+if(e.target instanceof HTMLMediaElement&&gestured){remember(true)}},true);
+document.addEventListener("volumechange",function(e){
+var el=e.target;if(el instanceof HTMLMediaElement&&gestured){remember(el.muted||el.volume===0)}},true);
+function sweep(n){if(n&&n.querySelectorAll){var l=n.querySelectorAll("audio,video");
+for(var i=0;i<l.length;i++){harden(l[i])}}}
+new MutationObserver(function(rs){for(var i=0;i<rs.length;i++){var a=rs[i].addedNodes;
+for(var j=0;j<a.length;j++){var n=a[j];
+if(n instanceof HTMLMediaElement){harden(n)}else{sweep(n)}}}})
+.observe(document.documentElement,{childList:true,subtree:true});
+document.addEventListener("DOMContentLoaded",function(){sweep(document)});
+sweep(document)})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gosnells Smash Repairs | Insurance Approved Panel Beaters, Maddington WA</title>
+<meta name="description" content="Insurance approved smash repairs and respray specialists in Maddington, Perth. Panel beating, welding and refinishing since 1973. Free quotes, loan cars, all insurance work accepted. MRB9647.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<noscript><style>.preloader{display:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="preloader" id="preloader" data-preloader aria-hidden="true"><div class="preloader__inner"><div class="preloader__mark"></div><div class="preloader__bar"><span></span></div></div></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="dot"></span>Insurance approved &amp; preferred repairer &middot; <strong>MRB9647</strong></div>
+    <div class="tb-right">
+      <a href="tel:+61894596307">(08) 9459 6307</a>
+      <a href="mailto:admin@gosnellssmashrepairs.com.au">admin@gosnellssmashrepairs.com.au</a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Gosnells Smash Repairs home">
+      <img src="assets/brand/logo.svg" alt="Gosnells Smash Repairs">
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">Our Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#insurance">Insurance</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-amber" href="#contact">Get a Free Quote</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-stage" id="heroStage" data-car-stage aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <span class="eyebrow">Maddington, Western Australia</span>
+        <h1>Quality auto body repairs<em>since 1973</em></h1>
+        <p class="lede">An insurance approved and preferred independent auto body repair workshop. Panel beating, welding and re-spraying for all types of motor vehicles — minor dents to major structural repair, private or insurance job.</p>
+        <div class="hero-cta">
+          <a class="btn btn-amber" href="#contact">Request a Free Quote</a>
+          <a class="btn btn-ghost" href="tel:+61894596307">Call (08) 9459 6307</a>
+        </div>
+        <div class="hero-facts" data-reveal-stagger>
+          <div data-reveal><b>50+</b><span>Years trading</span></div>
+          <div data-reveal><b>MRB9647</b><span>Licensed repairer</span></div>
+          <div data-reveal><b>All</b><span>Insurance work</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="wrap" data-reveal-stagger>
+      <div class="trust-item" data-reveal>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        Insurance approved
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Free quotes, quick turnaround
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-5h11l3 5v5H3v-5z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+        Loan car available
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l4-1 10-10-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg>
+        Free post-repair detailing
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="kicker">What we do</span>
+        <h2>Repairs handled end to end</h2>
+        <p>We offer a free quote and quick repairs. We can professionally fix damaged panels and we have vast experience on all types of vehicle — no matter whether it is minor dents or major repair work.</p>
+      </div>
+
+      <div class="svc-grid" data-reveal-stagger>
+        <article class="svc" data-reveal>
+          <span class="num">01</span>
+          <h3>Pre-Repair</h3>
+          <p class="sub">Before the work starts</p>
+          <ul>
+            <li>Photo recording of all damage</li>
+            <li>Free, no-obligation quotes</li>
+            <li>Quick approval process</li>
+            <li>Quick quote &amp; drop off</li>
+          </ul>
+        </article>
+
+        <article class="svc" data-reveal>
+          <span class="num">02</span>
+          <h3>During Repair</h3>
+          <p class="sub">While your car is with us</p>
+          <ul>
+            <li>Detailed inspection report</li>
+            <li>Qualified tradesmen on every job</li>
+            <li>Professional panel &amp; paint repairs</li>
+            <li>Loan car available on request</li>
+          </ul>
+        </article>
+
+        <article class="svc" data-reveal>
+          <span class="num">03</span>
+          <h3>Post-Repair</h3>
+          <p class="sub">Before you drive away</p>
+          <ul>
+            <li>Free car detailing</li>
+            <li>Final quality check</li>
+            <li>Pay excess only</li>
+            <li>Workmanship you can rely on</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background:var(--bone);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap split">
+      <div class="split-media" data-reveal>
+        <img src="assets/img/about-workshop.jpg" alt="Vehicle in the Gosnells Smash Repairs workshop" width="1200" height="900" loading="lazy">
+        <div class="badge"><b>1973</b><span>Established</span></div>
+      </div>
+      <div class="split-body">
+        <span class="kicker" style="font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:13.5px;font-weight:600;color:var(--amber-dk);display:block;margin-bottom:12px">Who we are</span>
+        <h2>Half a century of panel work in Perth's south-east</h2>
+        <p>Welcome to <strong>Gosnells Smash Repairs</strong>. We are an insurance approved car accident repair and respray specialist located at 21 Carole Rd, Maddington WA.</p>
+        <p>We are an insurance approved and preferred independent auto body repair workshop. Our team have combined experience in <strong>panel beating, welding and re-spraying</strong> in repairing all types of motor vehicles since 1973.</p>
+        <ul class="ticks">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Skilled, trained and qualified tradesmen</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Your satisfaction is the first priority</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Private work and all insurance claims welcome</li>
+        </ul>
+        <a class="btn btn-dark" href="#contact">Talk to our team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="kicker" style="color:var(--amber)">How it works</span>
+        <h2>From prang to pickup</h2>
+        <p>A straightforward path through the repair, so you always know what happens next.</p>
+      </div>
+      <div class="steps" data-reveal-stagger>
+        <div class="step" data-reveal>
+          <span class="n">01</span>
+          <h3>Get in touch</h3>
+          <p>Call us or send through your details. We record the damage with photos and give you a free quote.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="n">02</span>
+          <h3>Quote &amp; approval</h3>
+          <p>We prepare the quote and, for insurance jobs, deal with the approval so you are not chasing paperwork.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="n">03</span>
+          <h3>Drop off &amp; repair</h3>
+          <p>Book a drop-off time. A loan car can be arranged while our qualified tradesmen carry out the repair.</p>
+        </div>
+        <div class="step" data-reveal>
+          <span class="n">04</span>
+          <h3>Quality check</h3>
+          <p>Every job is inspected before handover, then detailed free of charge. You pay the excess only.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="kicker">Our work</span>
+        <h2>In the workshop</h2>
+        <p>Panel beating, welding and refinishing carried out on site in Maddington.</p>
+      </div>
+      <div class="gal" data-reveal-stagger>
+        <figure class="wide" data-reveal><img src="assets/img/work-1.jpg" alt="Vehicle body repair in progress" width="1200" height="800" loading="lazy"></figure>
+        <figure class="tall" data-reveal><img src="assets/img/work-3.jpg" alt="Panel work inside the workshop" width="1200" height="800" loading="lazy"></figure>
+        <figure data-reveal><img src="assets/img/work-2.jpg" alt="Repaired vehicle panel" width="1200" height="800" loading="lazy"></figure>
+        <figure data-reveal><img src="assets/img/work-4.jpg" alt="Workshop detail" width="1200" height="800" loading="lazy"></figure>
+        <figure data-reveal><img src="assets/img/work-6.jpg" alt="Vehicle ready for collection" width="1200" height="800" loading="lazy"></figure>
+        <figure class="wide" data-reveal><img src="assets/img/work-5.jpg" alt="Completed repair in the workshop" width="1200" height="800" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSURANCE -->
+  <section id="insurance" class="band">
+    <div class="wrap">
+      <div data-reveal>
+        <span class="quote-mark">&ldquo;</span>
+        <h2>You have the right to choose your repairer</h2>
+        <p>We accept all insurance work, including third-party claims. We look forward to being able to assist you after the event of an unfortunate accident.</p>
+        <p>As an insurance approved and preferred workshop, we can deal with your insurer directly and keep the process moving — so you get your vehicle back sooner.</p>
+      </div>
+      <div data-reveal>
+        <div class="callout">
+          Not sure whether your insurer will cover our workshop? Give us a call on <a href="tel:+61894596307" style="color:var(--amber-dk);font-weight:600">(08) 9459 6307</a> and we will talk you through it before you commit to anything.
+        </div>
+        <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-dark" href="#contact">Request a quote</a>
+          <a class="btn btn-outline" href="tel:+61894596307">Call us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="kicker">Get in touch</span>
+        <h2>Let us help fix your vehicle</h2>
+        <p>Request a quote today — it is quick and easy to do, and we will get in touch soon.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="info-block" data-reveal>
+            <span class="lbl">Workshop</span>
+            <div class="val">21 Carole Rd,<br>Maddington WA 6109</div>
+          </div>
+          <div class="info-block" data-reveal>
+            <span class="lbl">Phone</span>
+            <a class="val" href="tel:+61894596307">(08) 9459 6307</a>
+          </div>
+          <div class="info-block" data-reveal>
+            <span class="lbl">Email</span>
+            <a class="val" href="mailto:admin@gosnellssmashrepairs.com.au">admin@gosnellssmashrepairs.com.au</a>
+          </div>
+          <div class="info-block" data-reveal>
+            <span class="lbl">Business hours</span>
+            <ul class="hours">
+              <li><b>Monday &ndash; Thursday</b><span>8:00am &ndash; 4:00pm</span></li>
+              <li><b>Friday</b><span>8:00am &ndash; 4:30pm</span></li>
+              <li class="closed"><b>Saturday</b><span>Closed</span></li>
+              <li class="closed"><b>Sunday</b><span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <form id="quoteForm" action="mailto:admin@gosnellssmashrepairs.com.au" method="post" enctype="text/plain" data-reveal>
+          <h3>Request a free quote</h3>
+          <p class="form-note">Tell us about the vehicle and the damage. Fields marked * are required.</p>
+
+          <div class="row2">
+            <div class="field">
+              <label for="name">Your name *</label>
+              <input id="name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone *</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="vehicle">Vehicle (make / model / year)</label>
+              <input id="vehicle" name="vehicle" type="text" placeholder="e.g. Toyota Corolla 2018">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="type">Type of job</label>
+            <select id="type" name="job_type">
+              <option>Insurance claim</option>
+              <option>Third-party claim</option>
+              <option>Private repair</option>
+              <option>Respray / refinish</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Describe the damage</label>
+            <textarea id="message" name="message" placeholder="Which panels are affected, and is the vehicle drivable?"></textarea>
+          </div>
+
+          <button class="btn btn-amber" type="submit">Send my request</button>
+          <p class="form-fine">This form opens your own email app with the details filled in, so nothing is sent until you press send there. Prefer to talk? Call <a href="tel:+61894596307" style="color:var(--amber-dk);font-weight:600">(08) 9459 6307</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid" data-reveal-stagger>
+      <div class="foot-brand" data-reveal>
+        <img src="assets/brand/logo.svg" alt="Gosnells Smash Repairs">
+        <p>Insurance approved and preferred independent auto body repair workshop. Panel beating, welding and re-spraying since 1973.</p>
+      </div>
+      <div data-reveal>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Smash repairs</a></li>
+          <li><a href="#services">Panel beating</a></li>
+          <li><a href="#services">Respray &amp; refinishing</a></li>
+          <li><a href="#services">Insurance repairs</a></li>
+          <li><a href="#services">Free quotes</a></li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#process">Our process</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#insurance">Insurance</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h4>Contact</h4>
+        <ul>
+          <li>21 Carole Rd, Maddington WA 6109</li>
+          <li><a href="tel:+61894596307">(08) 9459 6307</a></li>
+          <li><a href="mailto:admin@gosnellssmashrepairs.com.au">admin@gosnellssmashrepairs.com.au</a></li>
+          <li>Mon&ndash;Thu 8:00am&ndash;4:00pm<br>Fri 8:00am&ndash;4:30pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr">2026</span> Gosnells Smash Repairs. All rights reserved.</span>
+      <span>Licensed repairer MRB9647 &middot; Maddington, Western Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/hero-car.js" defer></script>
+<script src="assets/js/animations.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

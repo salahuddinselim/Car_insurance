@@ -1,0 +1,28 @@
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.js [data-reveal].is-revealed { opacity: 1; transform: none; }
+
+.js .hero [data-reveal] { transform: translateY(18px); }
+
+@keyframes amber-breathe {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(230, 162, 48, 0.12); }
+  50% { box-shadow: 0 0 0 6px rgba(230, 162, 48, 0.03); }
+}
+.topbar .dot { animation: amber-breathe 3.2s ease-in-out infinite; }
+
+@keyframes car-hint-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.car-ui > * { animation: car-hint-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.car-ui > *:nth-child(2) { animation-delay: 0.09s; }
+.car-ui > *:nth-child(3) { animation-delay: 0.16s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; will-change: auto; }
+  .topbar .dot, .car-ui > * { animation: none !important; }
+  .preloader__mark, .preloader__bar span { animation: none !important; }
+  .preloader__bar span { width: 100%; }
+}

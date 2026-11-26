@@ -1,0 +1,3 @@
+BMW M4 Competition M Package model: https://skfb.ly/oyM8P by SRT Performance, licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Source: https://github.com/coopercodes/bmwGLB. Geometry simplified and Draco-compressed for web delivery.
+
+Ferrari 458 Italia model: three.js example by vicent091036 (https://sketchfab.com/models/57bf6cc56931426e87494f554df1dab6), distributed with the three.js examples.

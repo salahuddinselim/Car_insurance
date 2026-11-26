@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="56" viewBox="0 0 240 56" role="img" aria-label="Gosnells Smash Repairs">
+  <rect x="3" y="8" width="40" height="40" fill="#e6a230"/>
+  <path d="M31 19H20a9 9 0 1 0 0 18h8v-6h-8a3 3 0 1 1 0-6h11z" fill="#16191b"/>
+  <text x="55" y="28" fill="#16191b" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-size="25" font-weight="700" letter-spacing="1.2">GOSNELLS</text>
+  <text x="56" y="44" fill="#5f3b0a" font-family="Arial, sans-serif" font-size="8.6" font-weight="700" letter-spacing="2.9">SMASH REPAIRS</text>
+</svg>

@@ -1,0 +1,175 @@
+.hero {
+  position: relative;
+  min-height: calc(100svh - 108px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--bone);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 62% at 68% 50%, rgba(230, 162, 48, 0.12), transparent 68%),
+    radial-gradient(ellipse 45% 70% at 12% 90%, rgba(50, 58, 64, 0.45), transparent 70%);
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(242, 239, 231, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 239, 231, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, transparent 5%, #000 45%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 5%, #000 45%, #000 100%);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(16, 20, 23, 0.82) 0%, rgba(16, 20, 23, 0.35) 42%, transparent 72%);
+}
+
+body.has-car-stage #heroStage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.hero-stage.is-dragging { cursor: grabbing; }
+.hero-stage canvas { display: block; width: 100%; height: 100%; }
+
+.hero .wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  pointer-events: none;
+}
+.hero .wrap a { pointer-events: auto; }
+.hero-inner {
+  max-width: 620px;
+  padding: 120px 0 92px;
+}
+.hero-inner > * { pointer-events: none; }
+.hero-inner a { pointer-events: auto; }
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--amber);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.hero .eyebrow::before { content: ''; width: 26px; height: 1px; background: var(--amber); }
+.hero h1 {
+  font-size: clamp(3.3rem, 6.1vw, 6rem);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin-bottom: 22px;
+}
+.hero h1 em {
+  display: block;
+  margin-top: 8px;
+  color: var(--amber);
+  font-size: 0.76em;
+  font-style: italic;
+  letter-spacing: 0.005em;
+  padding-bottom: 0.08em;
+}
+.hero .lede {
+  max-width: 50ch;
+  color: rgba(242, 239, 231, 0.74);
+  font-size: 14.5px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 44px);
+  margin-top: 46px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-dk);
+}
+.hero-facts > div { display: flex; flex-direction: column; gap: 2px; }
+.hero-facts b {
+  color: var(--amber);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1;
+}
+.hero-facts span {
+  color: rgba(242, 239, 231, 0.55);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.car-loading {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 40;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  pointer-events: none;
+}
+.car-loading.is-done { opacity: 0; visibility: hidden; }
+.car-loading__text {
+  color: rgba(242, 239, 231, 0.7);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.car-loading__bar { width: 180px; height: 2px; background: rgba(242, 239, 231, 0.16); }
+.car-loading__bar i { display: block; height: 100%; width: 4%; background: var(--amber); transition: width 0.2s ease; }
+
+.car-poster {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.hero-stage.is-fallback .car-poster { opacity: 1; }
+.car-poster svg { width: min(70%, 720px); height: auto; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.45)); }
+
+@media (max-width: 900px) {
+  .hero { min-height: calc(100svh - 108px); align-items: flex-start; }
+  .hero-inner { padding: 120px 0 150px; max-width: 620px; }
+  .hero h1 { font-size: clamp(3rem, 9vw, 4.6rem); }
+  .hero-facts { margin-top: 34px; }
+}
+@media (max-width: 560px) {
+  .hero { min-height: calc(100svh - 100px); }
+  .hero-inner { padding: 44px 0 150px; }
+  .hero .eyebrow { font-size: 11px; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(2.5rem, 10.5vw, 3.25rem); margin-bottom: 16px; }
+  .hero .lede { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+  .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-cta .btn { width: 100%; min-height: 44px; }
+  .hero-facts { gap: 18px 24px; margin-top: 24px; padding-top: 16px; }
+  .car-poster svg { width: 92%; }
+}
