@@ -1,72 +1,73 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
 
   if (!window.gsap || !window.ScrollTrigger) {
-    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-revealed'));
+    reveals.forEach(element => element.classList.add('is-revealed'));
     return;
   }
 
   gsap.registerPlugin(ScrollTrigger);
 
   if (reduceMotion) {
-    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-revealed'));
-    const rail = document.createElement('span');
-    rail.className = 'steps__rail';
-    rail.innerHTML = '<i style="transform:scaleX(1)"></i>';
-    const steps = document.querySelector('.steps');
-    if (steps) steps.prepend(rail);
+    reveals.forEach(element => element.classList.add('is-revealed'));
     return;
   }
 
-  const steps = document.querySelector('.steps');
-  if (steps) {
-    const rail = document.createElement('span');
-    rail.className = 'steps__rail';
-    rail.innerHTML = '<i></i>';
-    steps.prepend(rail);
-    gsap.to(rail.firstElementChild, {
-      scaleX: 1,
-      ease: 'none',
-      scrollTrigger: { trigger: steps, start: 'top 82%', end: 'bottom 58%', scrub: 0.6 }
-    });
-  }
-
-  document.querySelectorAll('[data-reveal-stagger]').forEach(group => {
-    if (group.closest('.hero')) return;
-    const children = Array.from(group.children).filter(el => el.hasAttribute('data-reveal'));
+  document.querySelectorAll('[data-reveal-group]').forEach(group => {
+    const children = Array.from(group.children).filter(child => child.hasAttribute('data-reveal'));
     if (!children.length) return;
     gsap.to(children, {
       opacity: 1,
-      y: 0,
-      duration: 0.72,
-      stagger: 0.09,
+      x: 0,
+      duration: 0.8,
+      stagger: 0.11,
       ease: 'power3.out',
-      scrollTrigger: { trigger: group, start: 'top 88%', once: true }
+      scrollTrigger: { trigger: group, start: 'top 86%', once: true }
     });
   });
 
-  document.querySelectorAll('[data-reveal]').forEach(el => {
-    if (el.closest('.hero') || el.closest('[data-reveal-stagger]')) return;
-    gsap.to(el, {
+  reveals.forEach(element => {
+    if (element.closest('.chapter--hero') || element.closest('[data-reveal-group]')) return;
+    gsap.to(element, {
       opacity: 1,
       y: 0,
-      duration: 0.72,
+      duration: 0.85,
       ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+      scrollTrigger: { trigger: element, start: 'top 88%', once: true }
     });
   });
 
-  const heroCopy = ['.hero .eyebrow', '.hero h1', '.hero .lede', '.hero-cta'].join(',');
-  gsap.fromTo(heroCopy,
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.85, stagger: 0.1, ease: 'power3.out', delay: 0.12, clearProps: 'transform' }
-  );
-  gsap.to('.hero-facts > div', {
-    opacity: 1,
-    y: 0,
-    duration: 0.7,
-    stagger: 0.08,
-    ease: 'power3.out',
-    delay: 0.7
-  });
+  const heroHeading = document.querySelector('.chapter--hero h1');
+  if (heroHeading) {
+    gsap.fromTo(heroHeading,
+      { opacity: 0, y: 38, clipPath: 'inset(0 0 18% 0)' },
+      { opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)', duration: 1.15, ease: 'power4.out', delay: 0.4 }
+    );
+  }
+  const heroSecondary = Array.from(document.querySelectorAll('.chapter--hero .lede, .chapter--hero .cta-row, .chapter--hero .credential-line'));
+  if (heroSecondary.length) {
+    gsap.to(heroSecondary, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out', delay: 0.58 });
+  }
+
+  const gallery = document.querySelector('[data-gallery]');
+  if (gallery) {
+    const track = gallery.querySelector('.gallery__track');
+    const distance = () => Math.max(0, track.scrollWidth - gallery.clientWidth);
+    if (distance() > 0) {
+      gsap.to(track, {
+        x: () => -distance(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: gallery.closest('.chapter'),
+          start: 'top top',
+          end: () => '+=' + Math.round(window.innerHeight * 0.9),
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+  }
 })();
