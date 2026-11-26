@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T00:00:00.000Z",
+  "title": "Design System: Gosnells Smash Repairs",
+  "extensions": {
+    "colorMeta": {
+      "black": {
+        "role": "neutral",
+        "displayName": "Stage Black",
+        "canonical": "#050708",
+        "tonalRamp": ["#000000", "#020303", "#050708", "#0b0e10", "#15191c", "#20262a", "#2d353b", "#3c464d"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Workshop Ink",
+        "canonical": "#0b0e10",
+        "tonalRamp": ["#050708", "#080a0c", "#0b0e10", "#111518", "#171c20", "#20272c", "#2b343a", "#39444b"]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#15191c",
+        "tonalRamp": ["#080a0b", "#0e1113", "#15191c", "#1c2125", "#242b30", "#2e373d", "#3a454c", "#49555d"]
+      },
+      "silver": {
+        "role": "neutral",
+        "displayName": "Soft Silver",
+        "canonical": "#c7ccd0",
+        "tonalRamp": ["#3b4145", "#51585d", "#687076", "#7f878d", "#9ba2a7", "#b3b9bd", "#c7ccd0", "#e5e8ea"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Studio White",
+        "canonical": "#f5f6f4",
+        "tonalRamp": ["#5a5d5a", "#767974", "#92958f", "#afb1ac", "#c8cac6", "#dde0dc", "#eceeeb", "#f5f6f4"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Silver",
+        "canonical": "#9aa1a6",
+        "tonalRamp": ["#343a3e", "#495156", "#5f686e", "#758086", "#8b969c", "#9aa1a6", "#b8bec2", "#d7dbde"]
+      },
+      "amber": {
+        "role": "primary",
+        "displayName": "Showroom Amber",
+        "canonical": "#e6a230",
+        "tonalRamp": ["#4a2f05", "#73500a", "#a57015", "#c98d21", "#e6a230", "#eeb654", "#f3c982", "#f8dfb3"]
+      },
+      "amber-bright": {
+        "role": "primary",
+        "displayName": "Spotlight Amber",
+        "canonical": "#f3b956",
+        "tonalRamp": ["#5c3a08", "#8c5d0d", "#bd8217", "#d99f2a", "#e6a230", "#f3b956", "#f6cf87", "#fae6bb"]
+      },
+      "placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder Grey",
+        "canonical": "#73797d",
+        "tonalRamp": ["#2e3234", "#41474a", "#555c60", "#697075", "#73797d", "#8d9498", "#aab0b3", "#c9ced0"]
+      },
+      "rosso": {
+        "role": "primary",
+        "displayName": "Rosso",
+        "canonical": "#d40000",
+        "tonalRamp": ["#3d0b09", "#650f0b", "#8f150f", "#b61c13", "#d40000", "#df2e2e", "#e96666", "#f2a3a3"]
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "#e4e0d5",
+        "tonalRamp": ["#4c4a43", "#66635a", "#827e72", "#a09b8c", "#bcb7a8", "#d0ccbf", "#e4e0d5", "#f5f2ea"]
+      },
+      "cool-haze": {
+        "role": "neutral",
+        "displayName": "Cool Haze",
+        "canonical": "rgba(84, 101, 110, 0.12)",
+        "tonalRamp": ["rgba(84, 101, 110, 0.03)", "rgba(84, 101, 110, 0.06)", "rgba(84, 101, 110, 0.09)", "rgba(84, 101, 110, 0.12)", "rgba(84, 101, 110, 0.16)", "rgba(84, 101, 110, 0.2)", "rgba(84, 101, 110, 0.26)", "rgba(84, 101, 110, 0.32)"]
+      },
+      "scrim-white": {
+        "role": "neutral",
+        "displayName": "Scrim White",
+        "canonical": "rgba(255, 255, 255, 0.3)",
+        "tonalRamp": ["rgba(255, 255, 255, 0.04)", "rgba(255, 255, 255, 0.08)", "rgba(255, 255, 255, 0.14)", "rgba(255, 255, 255, 0.2)", "rgba(255, 255, 255, 0.3)", "rgba(255, 255, 255, 0.42)", "rgba(255, 255, 255, 0.6)", "rgba(255, 255, 255, 0.82)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero statement only." },
+      "headline": { "displayName": "Headline", "purpose": "Chapter headings and section turns." },
+      "body": { "displayName": "Body", "purpose": "Business copy and explanatory text." },
+      "label": { "displayName": "Label", "purpose": "Functional metadata, form labels, and stage UI." },
+      "note": { "displayName": "Note", "purpose": "Fine print and supporting notes." },
+      "field": { "displayName": "Field", "purpose": "Form inputs and action labels." },
+      "meta": { "displayName": "Meta", "purpose": "Compact metadata and small controls." },
+      "spec": { "displayName": "Spec", "purpose": "Stage figures and measurement rows." },
+      "lead": { "displayName": "Lead", "purpose": "Short lede lines." },
+      "lede": { "displayName": "Lede", "purpose": "Hero paragraph with a wider reading rhythm." },
+      "display-mobile": { "displayName": "Mobile Display", "purpose": "Hero statement on small screens." },
+      "headline-mobile": { "displayName": "Mobile Headline", "purpose": "Chapter headings on small screens." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "standard-ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Buttons, reveals, and camera-adjacent UI transitions." },
+      { "name": "state-ease", "value": "ease", "purpose": "Hover and focus colour changes." }
+    ],
+    "breakpoints": [
+      { "name": "wide-collapse", "value": "1100px" },
+      { "name": "nav-collapse", "value": "1000px" },
+      { "name": "mobile", "value": "700px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Amber call to action for quotes and enquiry.",
+      "html": "<button class=\"ds-btn-primary\">REQUEST A FREE QUOTE</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 13px 25px; border: 1px solid transparent; border-radius: 2px; background: var(--amber); color: #050708; font: 700 14px/1 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 0.13em; text-transform: uppercase; transition: background 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: #f3b956; transform: translateY(-2px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Phone and supporting actions without amber dominance.",
+      "html": "<button class=\"ds-btn-secondary\">CALL (08) 9459 6307</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 13px 25px; border: 1px solid rgba(199, 204, 208, 0.38); border-radius: 2px; background: rgba(5, 7, 8, 0.28); color: #f5f6f4; font: 700 14px/1 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 0.13em; text-transform: uppercase; transition: border-color 0.22s ease, color 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Square dark field with amber focus state.",
+      "html": "<label class=\"ds-field\"><span>Your name</span><input class=\"ds-input\" type=\"text\" placeholder=\"Full name\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 7px; } .ds-field > span { color: #9aa1a6; font: 700 11px/1.4 'Barlow', Arial, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; } .ds-input { width: 100%; min-height: 44px; padding: 10px 13px; border: 1px solid rgba(199, 204, 208, 0.24); border-radius: 0; background: #050708; color: #f5f6f4; font: 400 14px/1.4 'Barlow', Arial, sans-serif; caret-color: var(--amber); transition: border-color 0.2s ease, box-shadow 0.2s ease; } .ds-input::placeholder { color: #73797d; } .ds-input:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 3px rgba(230, 162, 48, 0.14); }"
+    },
+    {
+      "name": "Showroom Navigation",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Fixed dark navigation with a single amber action.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#story\">The story</a><a class=\"ds-nav-link\" href=\"#services\">Craft</a><a class=\"ds-nav-cta\" href=\"#contact\">Free quote</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 28px; padding: 18px 22px; background: #050708; } .ds-nav-link { color: #f5f6f4; font: 500 12px/1.4 'Barlow', Arial, sans-serif; letter-spacing: 0.03em; } .ds-nav-link:hover { color: var(--amber); } .ds-nav-cta { display: inline-flex; align-items: center; min-height: 42px; padding: 11px 20px; background: var(--amber); color: #050708; font: 700 13px/1 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none; } .ds-nav-cta:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }"
+    },
+    {
+      "name": "Chapter Rail",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Fixed progress indicator that tracks the persistent stage.",
+      "html": "<div class=\"ds-rail\"><span class=\"ds-rail-count\">01 / 07</span><span class=\"ds-rail-name\">Arrival</span><span class=\"ds-rail-track\"><i></i></span></div>",
+      "css": ".ds-rail { position: fixed; left: 22px; bottom: 26px; display: flex; align-items: center; gap: 10px; color: #9aa1a6; font: 700 11px/1.4 'Barlow', Arial, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; } .ds-rail-name { color: #f5f6f4; } .ds-rail-track { display: block; width: 70px; height: 1px; background: rgba(199, 204, 208, 0.24); overflow: hidden; } .ds-rail-track i { display: block; height: 100%; background: var(--amber); transform: scaleX(0.2); transform-origin: left; }"
+    },
+    {
+      "name": "Finish Swatch",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Circular paint selector for the 3D stage.",
+      "html": "<button class=\"ds-swatch\" style=\"--swatch:#d40000\" aria-label=\"Rosso red finish\" aria-pressed=\"true\"></button>",
+      "css": ".ds-swatch { width: 18px; height: 18px; padding: 0; border: 1px solid rgba(245, 246, 244, 0.34); border-radius: 50%; background: var(--swatch); transition: transform 0.2s ease, border-color 0.2s ease; } .ds-swatch[aria-pressed=\"true\"] { border-color: #f5f6f4; transform: scale(1.18); } .ds-swatch:hover { border-color: var(--amber); } .ds-swatch:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }"
+    },
+    {
+      "name": "Workshop Frame",
+      "kind": "card",
+      "refersTo": "input-field",
+      "description": "Gallery frame with a caption scrim over real workshop imagery.",
+      "html": "<figure class=\"ds-frame\"><img src=\"assets/img/work-1.jpg\" alt=\"Vehicle body repair in progress\"><figcaption>In the bay</figcaption></figure>",
+      "css": ".ds-frame { position: relative; width: 268px; height: 201px; margin: 0; overflow: hidden; border: 1px solid rgba(199, 204, 208, 0.18); background: #15191c; } .ds-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.72) contrast(1.08) brightness(0.9); transition: filter 0.5s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); } .ds-frame:hover img { filter: saturate(0.9) contrast(1.05) brightness(1); transform: scale(1.04); } .ds-frame figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px 14px 12px; background: linear-gradient(transparent, rgba(5, 7, 8, 0.88)); color: rgba(245, 246, 244, 0.82); font: 600 11px/1.4 'Barlow', Arial, sans-serif; letter-spacing: 0.08em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Collector's Atelier",
+    "overview": "This is a night-time automotive atelier: one vehicle, one continuous turntable, one measured journey through a workshop's capabilities. The interface behaves like gallery architecture rather than a brochure — fixed, dark, restrained, and built around the car's movement. Editorial copy sits in soft black scrims, allowing the 3D stage to remain the protagonist from arrival through enquiry.\n\nThe visual world is deliberately quiet. Deep charcoal and near-black tones absorb light; a single warm amber accent behaves like a showroom spot, marking focus, progress, and primary action. Condensed uppercase headings give authority without shouting, while Barlow body copy stays practical and legible for a real local repair business. Depth comes from light, reflection, and layering rather than decorative shadows.",
+    "keyCharacteristics": [
+      "A persistent 3D stage with one car and continuous rotation; no slideshow or model swap.",
+      "Alternating left/right copy blocks that let the car travel across the viewport.",
+      "Editorial scale, generous negative space, and a 1440px container with responsive page padding.",
+      "Amber used as a scarce focal signal, not a general brand wash.",
+      "Real workshop photography presented as restrained gallery frames."
+    ],
+    "rules": [
+      { "name": "The One Spotlight Rule", "body": "Amber marks focus and action; body copy, borders, and large surfaces stay neutral.", "section": "colors" },
+      { "name": "The Dark Stage Rule", "body": "The car is lit against near-black. Do not introduce light page backgrounds or broad colour panels.", "section": "colors" },
+      { "name": "The Condensed Voice Rule", "body": "Headings are uppercase Barlow Condensed; body copy remains sentence case Barlow.", "section": "typography" },
+      { "name": "The Readable Floor Rule", "body": "Functional text never drops below 11px; body notes stay at 12px or larger.", "section": "typography" },
+      { "name": "The Light Is Structure Rule", "body": "Use reflection, shadow, and gradient falloff for hierarchy; avoid decorative drop shadows on content blocks.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep one Ferrari GLB on stage for the full story.",
+      "Do let copy alternate sides while the car moves continuously.",
+      "Do keep amber scarce: focus, progress, primary action, and stage lighting.",
+      "Do label stage performance figures as illustrative.",
+      "Do preserve the verified workshop facts: MRB9647, Maddington, phone, email, hours, and free quote path."
+    ],
+    "donts": [
+      "Don't swap models, cut to static car slides, or reset the stage between chapters.",
+      "Don't use light backgrounds, playful illustration, or soft rounded cards.",
+      "Don't shrink functional text below 11px or use wide tracking on body copy.",
+      "Don't imply the Ferrari is a vehicle the workshop repaired.",
+      "Don't allow gallery motion to create horizontal document overflow."
+    ]
+  }
+}
