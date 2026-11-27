@@ -1,84 +1,62 @@
 <!DOCTYPE html>
 <html lang="en-AU">
-<head><script>document.documentElement.classList.add('js')</script><script data-tmly-media-guard="1">(function(){"use strict";
-var T=window.__tmly||(window.__tmly=(function(){
-var o={},n=String(window.name||"");
-if(n.slice(0,5)==="tmly:"){n.slice(5).split("&").forEach(function(kv){
-var i=kv.indexOf("=");if(i>0){o[kv.slice(0,i)]=kv.slice(i+1)}})}
-return o})());
-if(T.presentation!=="preview"){return}
-var K="tmly:media-muted:"+String(location.pathname).replace(/[^/]*$/,"");
-var muted=false;try{muted=localStorage.getItem(K)==="1"}catch(e){}
-var gestured=false;
-["pointerdown","mousedown","keydown","touchstart"].forEach(function(t){
-document.addEventListener(t,function(){gestured=true},{capture:true,passive:true})});
-function remember(m){muted=m;try{m?localStorage.setItem(K,"1"):localStorage.removeItem(K)}catch(e){}}
-function announcePaused(el){try{el.dispatchEvent(new Event("pause"))}catch(e){}}
-function harden(el){
-el.autoplay=false;el.removeAttribute("autoplay");
-if(el.getAttribute("preload")==="auto"){el.setAttribute("preload","none")}
-if(muted){el.muted=true}
-if(!gestured&&!el.paused){try{el.pause()}catch(e){}}}
-var play=HTMLMediaElement.prototype.play;
-HTMLMediaElement.prototype.play=function(){
-if(!gestured){announcePaused(this);
-return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
-if(muted){remember(false);this.muted=false}
-return play.apply(this,arguments)};
-var acProtos=[];
-function guardAC(n){
-var N=window[n];if(!N||!N.prototype){return}
-if(acProtos.indexOf(N.prototype)<0){acProtos.push(N.prototype);
-var res=N.prototype.resume;
-if(typeof res==="function"){N.prototype.resume=function(){
-if(!gestured){return Promise.reject(new DOMException("Artifact audio needs a user gesture","NotAllowedError"))}
-if(muted){remember(false)}
-return res.apply(this,arguments)}}}
-var W=function(o){var c=arguments.length?new N(o):new N();
-if(!gestured){try{c.suspend()}catch(e){}}return c};
-W.prototype=N.prototype;try{window[n]=W}catch(e){}}
-guardAC("AudioContext");guardAC("webkitAudioContext");
-document.addEventListener("play",function(e){
-var el=e.target;if(el instanceof HTMLMediaElement&&!gestured){try{el.pause()}catch(err){}}},true);
-document.addEventListener("pause",function(e){
-if(e.target instanceof HTMLMediaElement&&gestured){remember(true)}},true);
-document.addEventListener("volumechange",function(e){
-if(e.target instanceof HTMLMediaElement&&gestured){remember(e.target.muted||e.target.volume===0)}},true);
-function sweep(n){if(n&&n.querySelectorAll){var l=n.querySelectorAll("audio,video");
-for(var i=0;i<l.length;i++){harden(l[i])}}}
-new MutationObserver(function(rs){for(var i=0;i<rs.length;i++){var a=rs[i].addedNodes;
-for(var j=0;j<a.length;j++){var n=a[j];
-if(n instanceof HTMLMediaElement){harden(n)}else{sweep(n)}}}})
-.observe(document.documentElement,{childList:true,subtree:true});
-document.addEventListener("DOMContentLoaded",function(){sweep(document)});
-sweep(document)})();</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gosnells Smash Repairs | The Art of Restoration</title>
-<meta name="description" content="Insurance approved panel beating, welding and refinishing in Maddington, Perth. Restoring vehicles with precision since 1973. Free quotes, loan cars and all insurance work accepted. MRB9647.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/hero.css">
-<link rel="stylesheet" href="assets/css/animations.css">
-<link rel="stylesheet" href="assets/css/components.css">
-<noscript><style>.preloader,.car-loading{display:none!important}.js [data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gosnells Smash Repairs | The Art of Restoration</title>
+  <meta name="description" content="Insurance approved panel beating, welding and refinishing in Maddington, Perth. Restoring vehicles with precision since 1973. Free quotes, loan cars and all insurance work accepted. MRB9647.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <noscript>
+    <style>
+      .preloader, .car-loading { display: none !important; }
+      .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./assets/vendor/three.module.min.js",
+      "three/addons/": "./assets/vendor/addons/"
+    }
+  }
+  </script>
 </head>
 <body>
 
 <a class="skip-link" href="#story">Skip to the story</a>
 
-<div class="preloader" id="preloader" data-preloader aria-hidden="true"><div class="preloader__inner"><div class="preloader__mark"></div><span>Preparing the showroom</span><div class="preloader__bar"><i></i></div></div></div>
-
-<div class="studio" id="carStage" aria-hidden="true">
-  <div class="studio__poster">
-    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg"><path d="M48 205h36c8-34 28-52 62-57l58-6 52-52c10-10 24-15 41-15h92c18 0 31 6 43 18l45 48 62 12c28 6 44 19 49 52h34v26H48z" fill="#202528" stroke="#e6a230" stroke-width="3"/><circle cx="190" cy="232" r="38" fill="#101315" stroke="#e6a230" stroke-width="3"/><circle cx="530" cy="232" r="38" fill="#101315" stroke="#e6a230" stroke-width="3"/><circle cx="190" cy="232" r="14" fill="#6b6f70"/><circle cx="530" cy="232" r="14" fill="#6b6f70"/></svg>
+<div class="preloader" id="preloader" data-preloader aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__mark"></div>
+    <span>Preparing the showroom</span>
+    <div class="preloader__bar"><i></i></div>
   </div>
 </div>
 
-<div class="car-loading" id="carLoading" aria-hidden="true"><span>Preparing the vehicle</span><span class="car-loading__bar"><i></i></span></div>
+<div class="studio" id="carStage" aria-hidden="true">
+  <div class="studio__poster">
+    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M48 205h36c8-34 28-52 62-57l58-6 52-52c10-10 24-15 41-15h92c18 0 31 6 43 18l45 48 62 12c28 6 44 19 49 52h34v26H48z" fill="#202528" stroke="#e6a230" stroke-width="3"/>
+      <circle cx="190" cy="232" r="38" fill="#101315" stroke="#e6a230" stroke-width="3"/>
+      <circle cx="530" cy="232" r="38" fill="#101315" stroke="#e6a230" stroke-width="3"/>
+      <circle cx="190" cy="232" r="14" fill="#6b6f70"/>
+      <circle cx="530" cy="232" r="14" fill="#6b6f70"/>
+    </svg>
+  </div>
+</div>
+
+<div class="car-loading" id="carLoading" aria-hidden="true">
+  <span>Preparing the vehicle</span>
+  <span class="car-loading__bar"><i></i></span>
+</div>
 
 <div class="topbar">
   <div class="wrap">
@@ -112,37 +90,41 @@ sweep(document)})();</script>
 
 <main class="story" id="top">
 
+  <!-- 01 HERO -->
   <section class="chapter chapter--hero chapter--copy-left" id="hero" data-chapter="Arrival" data-side="right">
     <div class="wrap chapter__inner">
       <div class="chapter__copy">
+        <span class="hero-eyebrow" data-reveal>Maddington, Western Australia &middot; Est. 1973</span>
         <h1 data-reveal>Every car deserves a second first impression.</h1>
-        <p class="lede" data-reveal>Insurance approved panel beating, welding and refinishing in Maddington. Since 1973, we have brought vehicles back to their best — quietly, precisely and with every detail considered.</p>
+        <p class="lede" data-reveal>Insurance approved panel beating, welding and refinishing in Maddington. Since 1973, we have brought vehicles back to their best &mdash; quietly, precisely and with every detail considered.</p>
         <div class="cta-row" data-reveal>
           <a class="btn btn-primary" href="#contact">Request a free quote</a>
           <a class="btn btn-secondary" href="tel:+61894596307">Call (08) 9459 6307</a>
         </div>
-        <p class="credential-line" data-reveal>Established 1973 &nbsp;/&nbsp; Licensed repairer MRB9647 &nbsp;/&nbsp; Maddington, Western Australia</p>
+        <p class="credential-line" data-reveal>Licensed repairer MRB9647 &nbsp;&middot;&nbsp; All insurance work accepted</p>
       </div>
     </div>
     <div class="scroll-cue" aria-hidden="true"><span>Scroll to explore</span><i></i></div>
   </section>
 
+  <!-- 02 ABOUT / THE WORKSHOP -->
   <section class="chapter chapter--intro chapter--copy-right" id="story" data-chapter="The workshop" data-side="left">
     <div class="wrap chapter__inner">
       <div class="chapter__copy">
         <h2 data-reveal>Half a century at the bench.</h2>
-        <p data-reveal>Welcome to Gosnells Smash Repairs. We are an independent, insurance approved and preferred auto body workshop at 21 Carole Rd, Maddington — trusted by motorists across Perth's south-east since 1973.</p>
+        <p data-reveal>Welcome to Gosnells Smash Repairs. We are an independent, insurance approved and preferred auto body workshop at 21 Carole Rd, Maddington &mdash; trusted by motorists across Perth's south-east since 1973.</p>
         <p data-reveal>Our team's combined experience spans panel beating, welding and re-spraying on everything from minor dents to major structural repair. The standard never changes: do the work properly, then stand behind it.</p>
         <a class="text-link" href="#services" data-reveal>See what we do <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>
 
+  <!-- 03 SERVICES / CRAFT -->
   <section class="chapter chapter--craft chapter--copy-left" id="services" data-chapter="Craft" data-side="right">
     <div class="wrap chapter__inner">
       <div class="chapter__copy">
         <h2 data-reveal>Panel work, restored to intent.</h2>
-        <p data-reveal>Every job is recorded, inspected and repaired by qualified tradesmen. No shortcuts, no guesswork — just the right process for the damage in front of us.</p>
+        <p data-reveal>Every job is recorded, inspected and repaired by qualified tradesmen. No shortcuts, no guesswork &mdash; just the right process for the damage in front of us.</p>
         <ul class="ruled-list" data-reveal-group>
           <li data-reveal><span>Before</span><strong>Photo-documented damage and free, no-obligation quotes.</strong></li>
           <li data-reveal><span>During</span><strong>Detailed inspection, qualified tradesmen, professional panel and paint repair.</strong></li>
@@ -152,11 +134,12 @@ sweep(document)})();</script>
     </div>
   </section>
 
+  <!-- 04 PRECISION -->
   <section class="chapter chapter--precision chapter--copy-right" id="precision" data-chapter="Precision" data-side="left">
     <div class="wrap chapter__inner">
       <div class="chapter__copy">
         <h2 data-reveal>Precision is measurable.</h2>
-        <p data-reveal>On our stage: a Ferrari 458 Italia. The numbers below illustrate the standard we aspire to in the workshop — exact, repeatable, uncompromised. Our real credentials follow them.</p>
+        <p data-reveal>On our stage: a Ferrari 458 Italia. The numbers below illustrate the standard we aspire to in the workshop &mdash; exact, repeatable, uncompromised. Our real credentials follow them.</p>
         <dl class="spec-list" data-reveal>
           <div><dt>Stage car</dt><dd>Ferrari 458 Italia</dd></div>
           <div><dt>Output</dt><dd>570 hp <small>illustrative</small></dd></div>
@@ -169,11 +152,12 @@ sweep(document)})();</script>
     </div>
   </section>
 
+  <!-- 05 GALLERY / THE FINISH -->
   <section class="chapter chapter--finish chapter--copy-left" id="gallery" data-chapter="The finish" data-side="right">
     <div class="wrap chapter__inner">
       <div class="chapter__copy">
         <h2 data-reveal>The finish is the first thing you see.</h2>
-        <p data-reveal>Refinishing is where craft becomes visible. These frames are from our Maddington workshop — real panel work, real preparation, real attention to the final surface.</p>
+        <p data-reveal>Refinishing is where craft becomes visible. These frames are from our Maddington workshop &mdash; real panel work, real preparation, real attention to the final surface.</p>
         <div class="gallery" data-gallery data-reveal>
           <div class="gallery__track">
             <figure><img src="assets/img/work-1.jpg" alt="Vehicle body repair in progress" width="1200" height="800" loading="lazy"><figcaption>In the bay</figcaption></figure>
@@ -188,11 +172,12 @@ sweep(document)})();</script>
     </div>
   </section>
 
+  <!-- 06 INSURANCE -->
   <section class="chapter chapter--insurance chapter--copy-right" id="insurance" data-chapter="Your claim" data-side="left">
     <div class="wrap chapter__inner">
       <div class="chapter__copy">
         <h2 data-reveal>Your claim. Handled end to end.</h2>
-        <p data-reveal>You have the right to choose your repairer. As an insurance approved and preferred workshop, we accept all insurance work — including third-party claims — and deal with your insurer directly so you are not left chasing paperwork.</p>
+        <p data-reveal>You have the right to choose your repairer. As an insurance approved and preferred workshop, we accept all insurance work &mdash; including third-party claims &mdash; and deal with your insurer directly so you are not left chasing paperwork.</p>
         <ul class="ruled-list ruled-list--compact" data-reveal-group>
           <li data-reveal><span>01</span><strong>Call or send your details. We record the damage with photos.</strong></li>
           <li data-reveal><span>02</span><strong>We quote and manage approval with your insurer.</strong></li>
@@ -203,6 +188,7 @@ sweep(document)})();</script>
     </div>
   </section>
 
+  <!-- 07 CONTACT -->
   <section class="chapter chapter--contact chapter--copy-left" id="contact" data-chapter="Your turn" data-side="right">
     <div class="wrap chapter__inner">
       <div class="chapter__copy chapter__copy--wide">
@@ -239,11 +225,40 @@ sweep(document)})();</script>
       <img src="assets/brand/logo-light.svg" alt="Gosnells Smash Repairs">
       <p>Insurance approved and preferred independent auto body repair workshop. Panel beating, welding and re-spraying since 1973.</p>
     </div>
-    <div><h3>Explore</h3><ul><li><a href="#story">The story</a></li><li><a href="#services">Craft</a></li><li><a href="#precision">Precision</a></li><li><a href="#gallery">Finish</a></li><li><a href="#insurance">Insurance</a></li></ul></div>
-    <div><h3>Contact</h3><ul><li>21 Carole Rd, Maddington WA 6109</li><li><a href="tel:+61894596307">(08) 9459 6307</a></li><li><a href="mailto:admin@gosnellssmashrepairs.com.au">admin@gosnellssmashrepairs.com.au</a></li><li>Mon&ndash;Thu 8:00am&ndash;4:00pm<br>Fri 8:00am&ndash;4:30pm</li></ul></div>
-    <div><h3>Licence</h3><ul><li>Licensed repairer MRB9647</li><li>All insurance work accepted</li><li>Free quotes</li><li>Loan cars available</li><li>Free post-repair detailing</li></ul></div>
+    <div>
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#story">The story</a></li>
+        <li><a href="#services">Craft</a></li>
+        <li><a href="#precision">Precision</a></li>
+        <li><a href="#gallery">Finish</a></li>
+        <li><a href="#insurance">Insurance</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>21 Carole Rd, Maddington WA 6109</li>
+        <li><a href="tel:+61894596307">(08) 9459 6307</a></li>
+        <li><a href="mailto:admin@gosnellssmashrepairs.com.au">admin@gosnellssmashrepairs.com.au</a></li>
+        <li>Mon&ndash;Thu 8:00am&ndash;4:00pm<br>Fri 8:00am&ndash;4:30pm</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Licence</h3>
+      <ul>
+        <li>Licensed repairer MRB9647</li>
+        <li>All insurance work accepted</li>
+        <li>Free quotes</li>
+        <li>Loan cars available</li>
+        <li>Free post-repair detailing</li>
+      </ul>
+    </div>
   </div>
-  <div class="wrap foot-bottom"><span>&copy; <span id="yr">2026</span> Gosnells Smash Repairs. All rights reserved.</span><span>Maddington, Western Australia</span></div>
+  <div class="wrap foot-bottom">
+    <span>&copy; <span id="yr">2026</span> Gosnells Smash Repairs. All rights reserved.</span>
+    <span>Maddington, Western Australia</span>
+  </div>
 </footer>
 
 <div class="chapter-rail" id="chapterRail" aria-hidden="true">

@@ -1,17 +1,1 @@
-.js [data-reveal] {
-  opacity: 0;
-  transform: translateY(22px);
-}
-.js [data-reveal-group] > [data-reveal] {
-  transform: translateX(-14px);
-}
-.js [data-reveal].is-revealed {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .js [data-reveal] { opacity: 1 !important; transform: none !important; will-change: auto; }
-  .scroll-cue i::after, .preloader__mark, .preloader__bar i { animation: none !important; }
-  .preloader__bar i { width: 100% !important; }
-}
+﻿.js [data-reveal] {   opacity: 0;   transform: translateY(22px); } .js [data-reveal-group] > [data-reveal] {   transform: translateX(-14px); } .js [data-reveal].is-revealed {   opacity: 1;   transform: none; }  @media (prefers-reduced-motion: reduce) {   .js [data-reveal] { opacity: 1 !important; transform: none !important; will-change: auto; }   .scroll-cue i::after, .preloader__mark, .preloader__bar i { animation: none !important; }   .preloader__bar i { width: 100% !important; } }
